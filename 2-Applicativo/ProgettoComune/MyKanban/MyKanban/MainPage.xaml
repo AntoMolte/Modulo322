@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKanban.MainPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="2*"/>
+            <ColumnDefinition  Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1"
+               BackgroundColor="#e9e9e9" 
+               Margin="0,10" CornerRadius="40">
+            <Grid HorizontalOptions="Center" WidthRequest="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="1" Text="Accedi" FontSize="80" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Entry x:Name ="EntNameAccount" Grid.Row="2" BackgroundColor="White" Margin="10"
+                       Placeholder="Nome Utente"/>
+                <Entry x:Name ="EntPasswordAccount" Grid.Row="3" BackgroundColor="White" Margin="10"
+                       IsPassword="True" Placeholder="Metti la Password"/>
+             
+                <Button x:Name="btnLoginAccount" Grid.Row="4" Text="Accedi" BackgroundColor="#333"
+                        TextColor="White" CornerRadius="6" HeightRequest="45" 
+                        Margin="10" Clicked="OnLoginClicked"/>
+                <Button Grid.Row="5" FontSize="12" Background="Transparent"
+                       Text="Non hai un account? Registrati"
+                       HorizontalOptions="Center" TextColor="Blue"
+                        Clicked="OnRegisterClicked"/>
+                <Label Text="Password Dimenticata" Grid.Row="6" 
+                       FontSize="12" Grid.Column="1"  TextColor="Blue"
+                       TextDecorations="Underline" HorizontalOptions="Center"/>
+            </Grid>
+        </Frame>
+
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKanban.RegisterPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="2*"/>
+            <ColumnDefinition  Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1"
+           BackgroundColor="#e9e9e9" 
+           Margin="0,10" CornerRadius="40">
+            <Grid HorizontalOptions="Center" WidthRequest="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="1" Text="Benvenuto" FontSize="80" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Entry x:Name ="EntNameNewAccount" Grid.Row="2" BackgroundColor="White" Margin="10"
+                       Placeholder="Nome Utente"/>
+                <Entry x:Name ="EntPasswordNewAccount" Grid.Row="3" BackgroundColor="White" Margin="10"
+                       IsPassword="True" Placeholder="Metti la Password"/>
+                <Button x:Name="btnCreateAccount" Grid.Row="4" Text="Crea Account" BackgroundColor="#333"
+                        TextColor="White" CornerRadius="6" HeightRequest="45" 
+                        Margin="10" Clicked="OnRegisterClicked"/>
+                <Button Grid.Row="5" FontSize="12" Background="Transparent"
+                        Text="Hai un account? Accedi" Clicked="OnLoginClicked"
+                        HorizontalOptions="Center" TextColor="Blue"/>
+
+            </Grid>
+        </Frame>
+
+    </Grid>
+</ContentPage>
