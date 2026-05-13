@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\",
+  "WorkspaceRootPath": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\kanbanpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\kanbanpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\createtaskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\createtaskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\kanbanpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\kanbanpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\kanbanpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\createtaskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\createtaskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\createtaskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\createtaskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\createtaskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\repos\\mykanban\\2-applicativo\\progettocomune\\mykanban\\mykanban\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,77 +42,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegisterPage.xaml.cs",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\RegisterPage.xaml.cs",
-              "RelativeDocumentMoniker": "MyKanban\\RegisterPage.xaml.cs",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\RegisterPage.xaml.cs*",
-              "RelativeToolTip": "MyKanban\\RegisterPage.xaml.cs*",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T14:14:37.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "KanbanPage.xaml",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml",
-              "RelativeDocumentMoniker": "MyKanban\\KanbanPage.xaml",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml",
-              "RelativeToolTip": "MyKanban\\KanbanPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T13:51:07.516Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "MyKanban\\MainPage.xaml.cs",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml.cs",
-              "RelativeToolTip": "MyKanban\\MainPage.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAADQAAABBAAAAAAAAAA==",
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "MyKanban\\Models\\Task.cs",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Task.cs",
+              "RelativeToolTip": "MyKanban\\Models\\Task.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T13:04:52.723Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateTaskPage.xaml.cs",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml.cs",
-              "RelativeDocumentMoniker": "MyKanban\\CreateTaskPage.xaml.cs",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml.cs",
-              "RelativeToolTip": "MyKanban\\CreateTaskPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T12:40:54.415Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateTaskPage.xaml",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml",
-              "RelativeDocumentMoniker": "MyKanban\\CreateTaskPage.xaml",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml",
-              "RelativeToolTip": "MyKanban\\CreateTaskPage.xaml",
-              "ViewState": "AgIAACgAAAAAAAAAAAAYwCQAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T11:55:28.205Z",
+              "WhenOpened": "2026-05-13T11:31:49.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Task.cs",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Task.cs",
-              "RelativeDocumentMoniker": "MyKanban\\Models\\Task.cs",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Repos\\MyKanban\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Task.cs",
-              "RelativeToolTip": "MyKanban\\Models\\Task.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA9AAAAAAAAAA==",
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "MyKanban\\Models\\Account.cs",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\Models\\Account.cs",
+              "RelativeToolTip": "MyKanban\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T11:20:58.694Z"
+              "WhenOpened": "2026-05-13T11:23:15.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KanbanPage.xaml.cs",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml.cs",
+              "RelativeDocumentMoniker": "MyKanban\\KanbanPage.xaml.cs",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml.cs*",
+              "RelativeToolTip": "MyKanban\\KanbanPage.xaml.cs*",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T10:49:17.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KanbanPage.xaml",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml",
+              "RelativeDocumentMoniker": "MyKanban\\KanbanPage.xaml",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\KanbanPage.xaml",
+              "RelativeToolTip": "MyKanban\\KanbanPage.xaml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwEEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-13T10:49:16.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateTaskPage.xaml.cs",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml.cs",
+              "RelativeDocumentMoniker": "MyKanban\\CreateTaskPage.xaml.cs",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml.cs",
+              "RelativeToolTip": "MyKanban\\CreateTaskPage.xaml.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA3wCoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T12:40:54.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateTaskPage.xaml",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml",
+              "RelativeDocumentMoniker": "MyKanban\\CreateTaskPage.xaml",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\CreateTaskPage.xaml",
+              "RelativeToolTip": "MyKanban\\CreateTaskPage.xaml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADsAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-08T11:55:28.205Z",
+              "EditorCaption": ""
             }
           ]
         }

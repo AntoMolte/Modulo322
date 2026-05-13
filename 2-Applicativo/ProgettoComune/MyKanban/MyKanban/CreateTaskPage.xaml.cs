@@ -32,22 +32,30 @@ public partial class CreateTaskPage : ContentPage
             return;
         }
 
-        string path = Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
-
-        Models.Task newTask = new Models.Task()
+        string filePath = $"{Path.Combine(FileSystem.AppDataDirectory, EntTitle.Text)}.txt";
+        if (File.Exists(filePath))
         {
-            Title = EntTitle.Text,
-            statusTask = PickStatus.SelectedItem.ToString(),
-            priorityTask = PickPriority.SelectedItem.ToString(),
-            description = EntDescription.Text,
-            underTask = EntUnderTask.Text,
-            deadline = PickDate.Date
-        };
+            await DisplayAlert("Errore", "Attività già esistente", "Ok");
+            return;
+        }
 
-        await File.AppendAllTextAsync(path, Environment.NewLine);
-        await DisplayAlert("Successo", "Task salvata", "OK");
+        try{
+            Models.Task newTask = new Models.Task()
+            {
+                Title = EntTitle.Text,
+                statusTask = PickStatus.SelectedItem.ToString(),
+                priorityTask = PickPriority.SelectedItem.ToString(),
+                description = EntDescription.Text,
+                underTask = EntUnderTask.Text,
+                deadline = PickDate.Date
+            };
 
-        await Navigation.PushAsync(new KanbanPage());
+            File.AppendAllText(filePath, $"{newTask.ToRiga()}{Environment.NewLine}");
+            await DisplayAlert("Successo", "Task salvata", "OK");
+            await Navigation.PushAsync(new KanbanPage());
+        }catch{ 
+              await DisplayAlert("Errore", "Compilari tutti i campi obbligatori.", "Ok");
+        }
 
         EntTitle.Text = "";
         EntDescription.Text = "";
