@@ -37,7 +37,6 @@ public partial class CreateTaskPage : ContentPage
             return;
         }
 
-        // Controlla che non esista già una task con lo stesso titolo nel file
         if (File.Exists(TaskFilePath))
         {
             var righeEsistenti = File.ReadAllLines(TaskFilePath);

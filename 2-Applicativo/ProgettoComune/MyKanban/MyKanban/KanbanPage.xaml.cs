@@ -8,13 +8,9 @@ public partial class KanbanPage : ContentPage
     public KanbanPage()
     {
         InitializeComponent();
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
         CaricaTask();
     }
+
 
     private void CaricaTask()
     {
