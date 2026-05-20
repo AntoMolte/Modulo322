@@ -2,10 +2,14 @@ namespace MyKanban;
 
 public partial class CreateTaskPage : ContentPage
 {
-	public CreateTaskPage()
-	{
-		InitializeComponent();
-	}
+    // File unico per tutte le task, analogo a come l'account usa "username.txt"
+    private static string TaskFilePath =
+        Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
+
+    public CreateTaskPage()
+    {
+        InitializeComponent();
+    }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
@@ -26,20 +30,31 @@ public partial class CreateTaskPage : ContentPage
             await DisplayAlert("Errore", "Seleziona una priorità", "OK");
             return;
         }
+
         if (PickDate.Date < DateTime.Today)
         {
             await DisplayAlert("Errore", "La data di scadenza non può essere precedente a oggi", "OK");
             return;
         }
 
-        string filePath = $"{Path.Combine(FileSystem.AppDataDirectory, EntTitle.Text)}.txt";
-        if (File.Exists(filePath))
+        // Controlla che non esista già una task con lo stesso titolo nel file
+        if (File.Exists(TaskFilePath))
         {
-            await DisplayAlert("Errore", "Attività già esistente", "Ok");
-            return;
+            var righeEsistenti = File.ReadAllLines(TaskFilePath);
+            foreach (var riga in righeEsistenti)
+            {
+                if (string.IsNullOrWhiteSpace(riga)) continue;
+                var task = Models.Task.FromRiga(riga);
+                if (task.Title.Equals(EntTitle.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    await DisplayAlert("Errore", "Attività già esistente", "Ok");
+                    return;
+                }
+            }
         }
 
-        try{
+        try
+        {
             Models.Task newTask = new Models.Task()
             {
                 Title = EntTitle.Text,
@@ -50,11 +65,14 @@ public partial class CreateTaskPage : ContentPage
                 deadline = PickDate.Date
             };
 
-            File.AppendAllText(filePath, $"{newTask.ToRiga()}{Environment.NewLine}");
+            File.AppendAllText(TaskFilePath, $"{newTask.ToRiga()}{Environment.NewLine}");
+
             await DisplayAlert("Successo", "Task salvata", "OK");
             await Navigation.PushAsync(new KanbanPage());
-        }catch{ 
-              await DisplayAlert("Errore", "Compilari tutti i campi obbligatori.", "Ok");
+        }
+        catch
+        {
+            await DisplayAlert("Errore", "Compila tutti i campi obbligatori.", "Ok");
         }
 
         EntTitle.Text = "";

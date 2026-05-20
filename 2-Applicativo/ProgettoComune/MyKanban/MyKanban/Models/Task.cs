@@ -14,6 +14,7 @@ namespace MyKanban.Models
         public string description { get; set; } = string.Empty;
         public string underTask { get; set; } = string.Empty;
         public DateTime deadline { get; set; }
+        public DateTime DueDate => deadline;
         public string ToRiga()
         {
             return $"{Title};{statusTask};{priorityTask}; {description}; {underTask};{deadline}";
