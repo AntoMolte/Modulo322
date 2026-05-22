@@ -43,7 +43,7 @@ public partial class CreateTaskPage : ContentPage
             foreach (var riga in righeEsistenti)
             {
                 if (string.IsNullOrWhiteSpace(riga)) continue;
-                var task = Models.Task.FromRiga(riga);
+                var task = Models.KanbanTask.FromRiga(riga);
                 if (task.Title.Equals(EntTitle.Text, StringComparison.OrdinalIgnoreCase))
                 {
                     await DisplayAlert("Errore", "Attività già esistente", "Ok");
@@ -54,7 +54,7 @@ public partial class CreateTaskPage : ContentPage
 
         try
         {
-            Models.Task newTask = new Models.Task()
+            Models.KanbanTask newTask = new Models.KanbanTask()
             {
                 Title = EntTitle.Text,
                 statusTask = PickStatus.SelectedItem.ToString(),

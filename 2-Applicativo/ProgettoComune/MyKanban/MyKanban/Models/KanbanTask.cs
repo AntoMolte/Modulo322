@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyKanban.Models
 {
-    public class Task
+    public class KanbanTask
     {
         public string Title { get; set; }
         public string statusTask { get; set; }
@@ -19,10 +19,10 @@ namespace MyKanban.Models
         {
             return $"{Title};{statusTask};{priorityTask}; {description}; {underTask};{deadline}";
         }
-        public static Task FromRiga(string riga)
+        public static KanbanTask FromRiga(string riga)
         {
             string[] parts = riga.Split(';');
-            return new Task
+            return new KanbanTask
             {
                 Title = parts[0].Trim(),
                 statusTask = parts[1].Trim(),

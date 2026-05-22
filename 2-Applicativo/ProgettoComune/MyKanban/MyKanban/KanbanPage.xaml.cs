@@ -1,9 +1,16 @@
+using MyKanban.Models;
+using System.Collections.ObjectModel;
+
 namespace MyKanban;
 
 public partial class KanbanPage : ContentPage
 {
     private static string TaskFilePath =
         Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
+
+    private ObservableCollection<KanbanTask> daFare = null;
+    private ObservableCollection<KanbanTask> inCorso = null;
+    private ObservableCollection<KanbanTask> fatto = null;
 
     public KanbanPage()
     {
@@ -14,9 +21,9 @@ public partial class KanbanPage : ContentPage
 
     private void CaricaTask()
     {
-        var daFare = new List<Models.Task>();
-        var inCorso = new List<Models.Task>();
-        var fatto = new List<Models.Task>();
+        daFare = new ObservableCollection<KanbanTask>();
+        inCorso = new ObservableCollection<KanbanTask>();
+        fatto = new ObservableCollection<KanbanTask>();
 
         if (File.Exists(TaskFilePath))
         {
@@ -25,7 +32,7 @@ public partial class KanbanPage : ContentPage
             {
                 if (string.IsNullOrWhiteSpace(riga)) { continue; }
 
-                var task = Models.Task.FromRiga(riga);
+                var task = Models.KanbanTask.FromRiga(riga);
 
                 if (task.statusTask == "Da fare") { daFare.Add(task); }
                 else if (task.statusTask == "In corso") { inCorso.Add(task); }
@@ -42,4 +49,107 @@ public partial class KanbanPage : ContentPage
     {
         await Navigation.PushAsync(new CreateTaskPage());
     }
+
+    private void OnItemSelected(object sender, SelectionChangedEventArgs e)
+    {
+        KanbanTask selectedItem = e.CurrentSelection.FirstOrDefault() as KanbanTask;
+
+        if (selectedItem == null)
+        {
+            return;
+        }
+
+        DisplayAlert("Selezionato", selectedItem.Title, "OK");
+
+        ((CollectionView)sender).SelectedItem = null;
+
+    }
+    private KanbanTask taskTrascinata;
+
+    #region Drag Starting
+
+    private void ToDoDragStarting(object sender, DragStartingEventArgs e)
+    {
+        var frame = sender as DragGestureRecognizer;
+
+        taskTrascinata = frame.BindingContext as KanbanTask;
+
+        if (taskTrascinata != null)
+            e.Data.Text = taskTrascinata.ToString();
+    }
+
+    private void OnProgressDragStarting(object sender, DragStartingEventArgs e)
+    {
+        var frame = sender as DragGestureRecognizer;
+
+        taskTrascinata = frame.BindingContext as KanbanTask;
+
+        if (taskTrascinata != null)
+            e.Data.Text = taskTrascinata.ToString();
+    }
+
+    private void OnFinishDragStarting(object sender, DragStartingEventArgs e)
+    {
+        var frame = sender as DragGestureRecognizer;
+
+        taskTrascinata = frame.BindingContext as KanbanTask;
+
+        if (taskTrascinata != null)
+            e.Data.Text = taskTrascinata.ToString();
+    }
+
+    #endregion
+
+    #region Drop
+
+    private void ToDoDrop(object sender, DropEventArgs e)
+    {
+        if (taskTrascinata == null)
+            return;
+
+        daFare.Remove(taskTrascinata);
+        inCorso.Remove(taskTrascinata);
+        fatto.Remove(taskTrascinata);
+
+        taskTrascinata.statusTask = "Da fare";
+
+        daFare.Add(taskTrascinata);
+
+        taskTrascinata = null;
+    }
+
+    private void OnProgressDrop(object sender, DropEventArgs e)
+    {
+        if (taskTrascinata == null)
+            return;
+
+        daFare.Remove(taskTrascinata);
+        inCorso.Remove(taskTrascinata);
+        fatto.Remove(taskTrascinata);
+
+        taskTrascinata.statusTask = "In corso";
+
+        inCorso.Add(taskTrascinata);
+
+        taskTrascinata = null;
+    }
+
+    private void OnFinishDrop(object sender, DropEventArgs e)
+    {
+        if (taskTrascinata == null)
+            return;
+
+        daFare.Remove(taskTrascinata);
+        inCorso.Remove(taskTrascinata);
+        fatto.Remove(taskTrascinata);
+
+        taskTrascinata.statusTask = "Fatto";
+
+        fatto.Add(taskTrascinata);
+
+        taskTrascinata = null;
+    }
+
+
+    #endregion
 }
