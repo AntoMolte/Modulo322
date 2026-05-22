@@ -24,11 +24,11 @@
                 <Entry x:Name ="EntNameAccount" Grid.Row="2" BackgroundColor="White" Margin="10"
                        Placeholder="Nome Utente"/>
                 <Entry x:Name ="EntPasswordAccount" Grid.Row="3" BackgroundColor="White" Margin="10"
-                       IsPassword="True" Placeholder="Metti la Password"/>
+                       IsPassword="True" Placeholder="Metti la Password" Completed="OnLoginClicked"/>
              
                 <Button x:Name="btnLoginAccount" Grid.Row="4" Text="Accedi" BackgroundColor="#333"
                         TextColor="White" CornerRadius="6" HeightRequest="45" 
-                        Margin="10" Clicked="OnLoginClicked"/>
+                        Margin="10" Clicked="OnLoginClicked" />
                 <Button Grid.Row="5" FontSize="12" Background="Transparent"
                        Text="Non hai un account? Registrati"
                        HorizontalOptions="Center" TextColor="Blue"

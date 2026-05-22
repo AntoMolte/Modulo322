@@ -10,6 +10,12 @@ namespace MyKanban
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            btnLoginAccount.Focus();
+        }
+
         private async void OnLoginClicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(EntNameAccount.Text) ||

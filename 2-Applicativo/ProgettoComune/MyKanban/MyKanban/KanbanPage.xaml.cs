@@ -50,20 +50,32 @@ public partial class KanbanPage : ContentPage
         await Navigation.PushAsync(new CreateTaskPage());
     }
 
-    private void OnItemSelected(object sender, SelectionChangedEventArgs e)
+    private async void OnTaskTapped(object sender, TappedEventArgs e)
     {
-        KanbanTask selectedItem = e.CurrentSelection.FirstOrDefault() as KanbanTask;
+        var frame = sender as Frame;
 
-        if (selectedItem == null)
+        if (frame?.BindingContext is KanbanTask task)
         {
-            return;
+            await Navigation.PushAsync(new TaskDetailPage(task));
         }
-
-        DisplayAlert("Selezionato", selectedItem.Title, "OK");
-
-        ((CollectionView)sender).SelectedItem = null;
-
     }
+
+    private void SalvaTask()
+    {
+        List<string> righe = new();
+
+        foreach (var task in daFare)
+            righe.Add(task.ToRiga());
+
+        foreach (var task in inCorso)
+            righe.Add(task.ToRiga());
+
+        foreach (var task in fatto)
+            righe.Add(task.ToRiga());
+
+        File.WriteAllLines(TaskFilePath, righe);
+    }
+
     private KanbanTask taskTrascinata;
 
     #region Drag Starting
@@ -114,6 +126,7 @@ public partial class KanbanPage : ContentPage
         taskTrascinata.statusTask = "Da fare";
 
         daFare.Add(taskTrascinata);
+        SalvaTask();
 
         taskTrascinata = null;
     }
@@ -130,6 +143,7 @@ public partial class KanbanPage : ContentPage
         taskTrascinata.statusTask = "In corso";
 
         inCorso.Add(taskTrascinata);
+        SalvaTask();
 
         taskTrascinata = null;
     }
@@ -146,6 +160,7 @@ public partial class KanbanPage : ContentPage
         taskTrascinata.statusTask = "Fatto";
 
         fatto.Add(taskTrascinata);
+        SalvaTask();
 
         taskTrascinata = null;
     }

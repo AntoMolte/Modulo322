@@ -2,7 +2,6 @@ namespace MyKanban;
 
 public partial class CreateTaskPage : ContentPage
 {
-    // File unico per tutte le task, analogo a come l'account usa "username.txt"
     private static string TaskFilePath =
         Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
 

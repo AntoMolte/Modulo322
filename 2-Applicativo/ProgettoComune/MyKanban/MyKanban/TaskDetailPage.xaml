@@ -19,7 +19,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Text="Crea Attività" TextColor="Black" FontSize="44" HorizontalOptions="Center"  Grid.ColumnSpan="2"  Margin="0,20,0,30"/>
+            <Label x:Name="TitleTask" Text="Crea Attività" TextColor="Black" FontSize="44" HorizontalOptions="Center"  Grid.ColumnSpan="2"  Margin="0,20,0,30"/>
             <Label Text="Campi Obbligatori" FontSize="22" TextColor="Black" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0"/>
             <VerticalStackLayout Grid.Row="2" Grid.Column="0" Margin="15">
                 <Label Text="Titolo Attività" FontSize="20" TextColor="Black"/>
@@ -43,8 +43,16 @@
                 <Label Text="Data di scadenza" FontSize="18" TextColor="Black"/>
                 <DatePicker x:Name="PickDate"  Format="dd/MM/yyyy" FontSize="20" Background="White"/>
             </VerticalStackLayout>
-            <Button x:Name="btnAnnullaTask" Grid.Row="6" Grid.Column="0" Text="Annulla Creazione" BackgroundColor="#333"
-                TextColor="White" CornerRadius="6" HeightRequest="45" Margin="15" Clicked="OnAnnulaClicked"/>
+            <Button x:Name="btnDeleteTask"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Text="Elimina Attività"
+                    BackgroundColor="#AA3333"
+                    TextColor="White"
+                    CornerRadius="6"
+                    HeightRequest="45"
+                    Margin="15"
+                    Clicked="OnDeleteClicked"/>
 
             <!--Colonna 1-->
             <Label Text="Campi Facoltativi" FontSize="22" TextColor="Black" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" Margin="20,0,0,0"/>
@@ -52,12 +60,20 @@
                 <Label Text="Descrizione" FontSize="20" TextColor="Black"/>
                 <Editor Grid.Row="1" x:Name="EntDescription" FontSize="24" BackgroundColor="White" AutoSize="Disabled"/>
             </Grid>
-            <Grid Grid.Row="4" Grid.RowSpan="4" Grid.Column="1" Margin="15" RowDefinitions="Auto, 151">
+            <Grid Grid.Row="4" Grid.RowSpan="2" Grid.Column="1" Margin="15" RowDefinitions="Auto, 151">
                 <Label Text="Sotto-Attività" FontSize="20" TextColor="Black"/>
                 <Editor Grid.Row="1" x:Name="EntUnderTask" FontSize="24" BackgroundColor="White" AutoSize="Disabled"/>
             </Grid>
-            <Button x:Name="btnSaveTask" Grid.Row="6" Grid.Column="1" Text="Crea attività" BackgroundColor="#333"
-                    TextColor="White" CornerRadius="6" HeightRequest="45" Margin="15" Clicked="OnSaveClicked"/>
+            <Button x:Name="btnSaveTask"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Text="Salva Modifiche"
+                    BackgroundColor="#333"
+                    TextColor="White"
+                    CornerRadius="6"
+                    HeightRequest="45"
+                    Margin="15"
+                    Clicked="OnSaveClicked"/>
         </Grid>
     </Frame>
 </ContentPage>

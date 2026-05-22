@@ -17,12 +17,13 @@
                         Drop="ToDoDrop"/>
                 </StackLayout.GestureRecognizers>
                 <Label Text="Da fare" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
-                <CollectionView x:Name="ToDoCollectionView" Margin="0,10" SelectionMode="Single" SelectionChanged="OnItemSelected">
+                <CollectionView x:Name="ToDoCollectionView" Margin="0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="10">
                                 <Frame.GestureRecognizers>
                                     <DragGestureRecognizer CanDrag="True" DragStarting="ToDoDragStarting"/>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                         <StackLayout Padding="10" Margin="5">
                                             <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
@@ -48,6 +49,7 @@
                             <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="5">
                                 <Frame.GestureRecognizers>
                                     <DragGestureRecognizer CanDrag="True" DragStarting="OnProgressDragStarting"/>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                 <StackLayout Padding="10">
                                     <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
@@ -73,6 +75,7 @@
                             <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="5">
                                 <Frame.GestureRecognizers>
                                     <DragGestureRecognizer CanDrag="True" DragStarting="OnFinishDragStarting"/>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                 <StackLayout Padding="10">
                                     <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
