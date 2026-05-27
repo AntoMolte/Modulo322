@@ -56,7 +56,8 @@ namespace MyKanban
                 if (passwordCorretta)
                 {
                     await DisplayAlert("Successo", "Login effettuato con successo", "Ok");
-                    await Navigation.PushAsync(new KanbanPage());
+
+                    Application.Current.MainPage = new AppShell();
                 }
                 else
                 {

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyKanban.KanbanPage">
     <Grid RowDefinitions="*,Auto">
+
         <Grid Grid.Row="0" HorizontalOptions="Center" HeightRequest="700">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="330"/>
@@ -10,51 +11,41 @@
                 <ColumnDefinition Width="330"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Grid.Column="0" BackgroundColor="#f0f0f0" Padding="10" Margin="15,0,15,0">
+            <!-- DA FARE -->
+            <StackLayout Grid.Column="0" BackgroundColor="#EEF2FF" Padding="10" Margin="15,0,15,0">
                 <StackLayout.GestureRecognizers>
-                    <DropGestureRecognizer
-                        AllowDrop="True"
-                        Drop="ToDoDrop"/>
+                    <DropGestureRecognizer AllowDrop="True" Drop="ToDoDrop"/>
                 </StackLayout.GestureRecognizers>
-                <Label Text="Da fare" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+                    <BoxView WidthRequest="10" HeightRequest="10" CornerRadius="5"
+                             BackgroundColor="#6366F1" VerticalOptions="Center" Margin="0,0,8,0"/>
+                    <Label Text="Da fare" FontSize="20" FontAttributes="Bold" TextColor="#4338CA"/>
+                </StackLayout>
+
                 <CollectionView x:Name="ToDoCollectionView" Margin="0,10">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="10">
+                            <Frame BackgroundColor="White" CornerRadius="13" Margin="5,5,5,5"
+                                   BorderColor="#12000000" Padding="14">
                                 <Frame.GestureRecognizers>
                                     <DragGestureRecognizer CanDrag="True" DragStarting="ToDoDragStarting"/>
-                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"/>
                                 </Frame.GestureRecognizers>
-                                        <StackLayout Padding="10" Margin="5">
-                                            <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
-                                            <Label Text="{Binding priorityTask}" FontSize="14"/>
-                                            <Label Text="{Binding DueDate, StringFormat='Scadenza: {0:dd/MM/yyyy}'}" FontSize="12" TextColor="#666"/>
-                                        </StackLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
-
-            <StackLayout Grid.Column="1" BackgroundColor="#f0f0f0" Padding="10" Margin="15,0,15,0">
-                <StackLayout.GestureRecognizers>
-                    <DropGestureRecognizer
-                        AllowDrop="True"
-                        Drop="OnProgressDrop"/>
-                </StackLayout.GestureRecognizers>
-                <Label Text="In corso" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
-                <CollectionView x:Name="OnProgressCollectionView " Margin="0,10" SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="5">
-                                <Frame.GestureRecognizers>
-                                    <DragGestureRecognizer CanDrag="True" DragStarting="OnProgressDragStarting"/>
-                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-                                <StackLayout Padding="10">
-                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
-                                    <Label Text="{Binding priorityTask}" FontSize="14"/>
-                                    <Label Text="{Binding DueDate, StringFormat='Scadenza: {0:dd/MM/yyyy}'}" FontSize="12" TextColor="#666"/>
+                                <StackLayout Spacing="6">
+                                    <Label Text="{Binding Title}" FontSize="15" FontAttributes="Bold"
+                                           TextColor="Black"/>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <Frame Grid.Column="0" BackgroundColor="#FEE2E2" CornerRadius="6"
+                                               Padding="8,2" BorderColor="Transparent">
+                                            <Label Text="{Binding priorityTask}" FontSize="11"
+                                                   FontAttributes="Bold" TextColor="#B91C1C"/>
+                                        </Frame>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding DueDate, StringFormat='📅 {0:dd/MM/yyyy}'}"
+                                               FontSize="11" TextColor="#888" HorizontalOptions="End"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
@@ -62,36 +53,96 @@
                 </CollectionView>
             </StackLayout>
 
-            <StackLayout Grid.Column="2" BackgroundColor="#f0f0f0" Padding="10" Margin="15,0,15,0">
+            <!-- IN CORSO -->
+            <StackLayout Grid.Column="1" BackgroundColor="#FFF7ED" Padding="10" Margin="15,0,15,0">
                 <StackLayout.GestureRecognizers>
-                    <DropGestureRecognizer
-                        AllowDrop="True"
-                        Drop="OnFinishDrop"/>
+                    <DropGestureRecognizer AllowDrop="True" Drop="OnProgressDrop"/>
                 </StackLayout.GestureRecognizers>
-                <Label Text="fatto" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+                    <BoxView WidthRequest="10" HeightRequest="10" CornerRadius="5"
+                             BackgroundColor="#F97316" VerticalOptions="Center" Margin="0,0,8,0"/>
+                    <Label Text="In corso" FontSize="20" FontAttributes="Bold" TextColor="#C2410C"/>
+                </StackLayout>
+
+                <CollectionView x:Name="OnProgressCollectionView" Margin="0,10" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White" CornerRadius="13" Margin="5,5,5,5"
+                                   BorderColor="#12000000" Padding="14">
+                                <Frame.GestureRecognizers>
+                                    <DragGestureRecognizer CanDrag="True" DragStarting="OnProgressDragStarting"/>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"/>
+                                </Frame.GestureRecognizers>
+                                <StackLayout Spacing="6">
+                                    <Label Text="{Binding Title}" FontSize="15" FontAttributes="Bold"
+                                           TextColor="Black"/>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <Frame Grid.Column="0" BackgroundColor="#FEF3C7" CornerRadius="6"
+                                               Padding="8,2" BorderColor="Transparent">
+                                            <Label Text="{Binding priorityTask}" FontSize="11"
+                                                   FontAttributes="Bold" TextColor="#92400E"/>
+                                        </Frame>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding DueDate, StringFormat='📅 {0:dd/MM/yyyy}'}"
+                                               FontSize="11" TextColor="#888" HorizontalOptions="End"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <!-- FATTO -->
+            <StackLayout Grid.Column="2" BackgroundColor="#ECFDF5" Padding="10" Margin="15,0,15,0">
+                <StackLayout.GestureRecognizers>
+                    <DropGestureRecognizer AllowDrop="True" Drop="OnFinishDrop"/>
+                </StackLayout.GestureRecognizers>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+                    <BoxView WidthRequest="10" HeightRequest="10" CornerRadius="5"
+                             BackgroundColor="#10B981" VerticalOptions="Center" Margin="0,0,8,0"/>
+                    <Label Text="Fatto" FontSize="20" FontAttributes="Bold" TextColor="#059669"/>
+                </StackLayout>
+
                 <CollectionView x:Name="OnFinishCollectionView" Margin="0,10" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="#e9e9e9" CornerRadius="10" Margin="5">
+                            <Frame BackgroundColor="White" CornerRadius="13" Margin="5,5,5,5"
+                                   BorderColor="#12000000" Padding="14" Opacity="0.7">
                                 <Frame.GestureRecognizers>
                                     <DragGestureRecognizer CanDrag="True" DragStarting="OnFinishDragStarting"/>
-                                    <TapGestureRecognizer Tapped="OnTaskTapped"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Tapped="OnTaskTapped"/>
                                 </Frame.GestureRecognizers>
-                                <StackLayout Padding="10">
-                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold"/>
-                                    <Label Text="{Binding priorityTask}" FontSize="14"/>
-                                    <Label Text="{Binding DueDate, StringFormat='Scadenza: {0:dd/MM/yyyy}'}" FontSize="12" TextColor="#666"/>
+                                <StackLayout Spacing="6">
+                                    <Label Text="{Binding Title}" FontSize="15" FontAttributes="Bold"
+                                           TextColor="#888" TextDecorations="Strikethrough"/>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <Frame Grid.Column="0" BackgroundColor="#D1FAE5" CornerRadius="6"
+                                               Padding="8,2" BorderColor="Transparent">
+                                            <Label Text="{Binding priorityTask}" FontSize="11"
+                                                   FontAttributes="Bold" TextColor="#065F46"/>
+                                        </Frame>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding DueDate, StringFormat='📅 {0:dd/MM/yyyy}'}"
+                                               FontSize="11" TextColor="#888" HorizontalOptions="End"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
             </StackLayout>
 
         </Grid>
-        <Button Grid.Row="1" x:Name="btnSaveTask" Text="Crea attività" BackgroundColor="#333" 
-                TextColor="White" CornerRadius="6" HeightRequest="45" Margin="15" 
-                Clicked="OnCreateClicked" VerticalOptions="End" WidthRequest="970"/>
+
+        <Button Grid.Row="1" x:Name="btnSaveTask" Text="＋ Crea attività"
+                BackgroundColor="#475569" TextColor="White" CornerRadius="13"
+                HeightRequest="48" Margin="15" Clicked="OnCreateClicked"
+                VerticalOptions="End" WidthRequest="970"/>
+
     </Grid>
 </ContentPage>

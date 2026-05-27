@@ -46,7 +46,7 @@ public partial class TaskDetailPage : ContentPage
 
         await DisplayAlert("Salvato", "Modifiche salvate correttamente", "OK");
 
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new KanbanPage());
     }
 
     private async void OnDeleteClicked(object sender, EventArgs e)
@@ -63,6 +63,11 @@ public partial class TaskDetailPage : ContentPage
         // opzionale:
         // qui potrai eliminare la task dal file
 
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new KanbanPage());
+    }
+
+    private async void OnCancelClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new KanbanPage());
     }
 }

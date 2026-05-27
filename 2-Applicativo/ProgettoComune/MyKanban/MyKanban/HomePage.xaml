@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyKanban.HomePage"
+             BackgroundColor="#F5F5F5">
+    <ContentPage.Resources>
+        <Style x:Key="DayHeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="#888888"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,6"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="24">
+            <Label Text="Home" FontSize="28" FontAttributes="Bold"
+                   TextColor="#1A1A1A" HorizontalTextAlignment="Center"/>
+
+            <!-- CALENDARIO -->
+            <Border BackgroundColor="White" StrokeShape="RoundRectangle 12"
+                    Stroke="#DDDDDD" StrokeThickness="1" Padding="16"
+                    HorizontalOptions="Center" WidthRequest="320">
+                <VerticalStackLayout Spacing="10">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Button Grid.Column="0" Text="‹" FontSize="18"
+                                TextColor="#333333" BackgroundColor="Transparent"
+                                WidthRequest="32" HeightRequest="32" Padding="0"
+                                Clicked="BtnPrev_Clicked"/>
+                        <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="6">
+                            <Picker x:Name="MonthPicker" TextColor="#1A1A1A" FontSize="13"
+                                    SelectedIndexChanged="Picker_Changed"/>
+                            <Picker x:Name="YearPicker" TextColor="#1A1A1A" FontSize="13"
+                                    SelectedIndexChanged="Picker_Changed"/>
+                        </HorizontalStackLayout>
+                        <Button Grid.Column="2" Text="›" FontSize="18"
+                                TextColor="#333333" BackgroundColor="Transparent"
+                                WidthRequest="32" HeightRequest="32" Padding="0"
+                                Clicked="BtnNext_Clicked"/>
+                    </Grid>
+                    <BoxView HeightRequest="1" BackgroundColor="#EEEEEE"/>
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*">
+                        <Label Grid.Column="0" Text="Su" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="1" Text="Mo" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="2" Text="Tu" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="3" Text="We" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="4" Text="Th" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="5" Text="Fr" Style="{StaticResource DayHeaderStyle}"/>
+                        <Label Grid.Column="6" Text="Sa" Style="{StaticResource DayHeaderStyle}"/>
+                    </Grid>
+                    <Grid x:Name="DaysGrid"
+                          ColumnDefinitions="*,*,*,*,*,*,*"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                          RowSpacing="2" ColumnSpacing="2"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- TITOLO DATA SELEZIONATA -->
+            <Label x:Name="LblDataSelezionata"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="#1A1A1A" HorizontalTextAlignment="Center"/>
+
+            <!-- 3 CARD TASK PER IL GIORNO SELEZIONATO -->
+            <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+
+                <!-- DA FARE -->
+                <Border BackgroundColor="White" Stroke="#DDDDDD" StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12" Padding="16"
+                        WidthRequest="320" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Da fare" FontSize="14" FontAttributes="Bold" TextColor="#1A1A1A"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#EEEEEE"/>
+                        <CollectionView x:Name="CvDaFare" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="Auto,*" Padding="0,4">
+                                        <Label Grid.Column="0" Text="⭐" FontSize="14"
+                                               TextColor="#F4C542" VerticalOptions="Center"/>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="0" Margin="8,0">
+                                            <Label Text="{Binding Title}" FontSize="13" TextColor="#1A1A1A"/>
+                                            <Label Text="{Binding priorityTask}" FontSize="11" TextColor="#888888"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label x:Name="LblVuotoDaFare" Text="Nessuna attività"
+                               FontSize="12" TextColor="#AAAAAA"
+                               HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- IN CORSO -->
+                <Border BackgroundColor="White" Stroke="#DDDDDD" StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12" Padding="16"
+                        WidthRequest="320" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="In corso" FontSize="14" FontAttributes="Bold" TextColor="#1A1A1A"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#EEEEEE"/>
+                        <CollectionView x:Name="CvInCorso" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="Auto,*" Padding="0,4">
+                                        <Label Grid.Column="0" Text="🔄" FontSize="14"
+                                               VerticalOptions="Center"/>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="0" Margin="8,0">
+                                            <Label Text="{Binding Title}" FontSize="13" TextColor="#1A1A1A"/>
+                                            <Label Text="{Binding priorityTask}" FontSize="11" TextColor="#888888"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label x:Name="LblVuotoInCorso" Text="Nessuna attività"
+                               FontSize="12" TextColor="#AAAAAA"
+                               HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- FATTE -->
+                <Border BackgroundColor="White" Stroke="#DDDDDD" StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12" Padding="16"
+                        WidthRequest="320" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Fatte" FontSize="14" FontAttributes="Bold" TextColor="#1A1A1A"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#EEEEEE"/>
+                        <CollectionView x:Name="CvFatte" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="Auto,*" Padding="0,4">
+                                        <Label Grid.Column="0" Text="✅" FontSize="14"
+                                               VerticalOptions="Center"/>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="0" Margin="8,0">
+                                            <Label Text="{Binding Title}" FontSize="13" TextColor="#1A1A1A"/>
+                                            <Label Text="{Binding priorityTask}" FontSize="11" TextColor="#888888"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <Label x:Name="LblVuotoFatte" Text="Nessuna attività"
+                               FontSize="12" TextColor="#AAAAAA"
+                               HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
