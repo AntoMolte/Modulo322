@@ -13,8 +13,10 @@ public partial class RegisterPage : ContentPage
         await Navigation.PushAsync(new MainPage());
     }
 
+    //Gestione del click sul pulsante di registrazione per creare un nuovo account
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
+        //Controllo se i campi nome account e password sono vuoti, se si messaggio di errore
         if (string.IsNullOrEmpty(EntNameNewAccount.Text) ||
             string.IsNullOrEmpty(EntPasswordNewAccount.Text))
         {
@@ -22,13 +24,16 @@ public partial class RegisterPage : ContentPage
             return;
         }
 
+        //Costruzione del percorso del file dell'account basato sul nome account inserito
         string filePath = $"{Path.Combine(FileSystem.AppDataDirectory, EntNameNewAccount.Text)}.txt";
+        //Controllo se il file dell'account esiste già, se si messaggio di errore
         if (File.Exists(filePath))
         {
             await DisplayAlert("Errore", "Account già esistente", "Ok");
             return;
         }
 
+        //Prova a creare un nuovo account, scrive il nuovo account su un nuovo file e naviga alla pagina principale dell'app, altrimenti mostra un messaggio di errore
         try
         {
             Account account = new Account

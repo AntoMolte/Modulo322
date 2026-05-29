@@ -2,6 +2,7 @@ namespace MyKanban;
 
 public partial class CreateTaskPage : ContentPage
 {
+    /// Percorso del file per salvare le attività
     private static string TaskFilePath =
         Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
 
@@ -9,12 +10,15 @@ public partial class CreateTaskPage : ContentPage
     public CreateTaskPage()
     {
         InitializeComponent();
+        // Imposta la data minima per la scadenza a domani
         PickDate.MinimumDate = DateTime.Today.AddDays(1);
+        // Imposta la data di default a domani
         PickDate.Date = DateTime.Today.AddDays(1);
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
+        // Validazione dei campi obbligatori
         if (string.IsNullOrEmpty(EntTitle.Text))
         {
             await DisplayAlert("Errore", "Inserisci il titolo", "OK");
@@ -39,6 +43,7 @@ public partial class CreateTaskPage : ContentPage
             return;
         }
 
+        //Controlla se esiste già un'attività con lo stesso titolo
         if (File.Exists(TaskFilePath))
         {
             var righeEsistenti = File.ReadAllLines(TaskFilePath);

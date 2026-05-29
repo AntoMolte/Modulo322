@@ -9,13 +9,13 @@ public partial class KanbanPage : ContentPage
     private static string TaskFilePath =
         Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
 
+    //ObservableCollection per ogni colonna del Kanban, permette di aggiornare automaticamente la UI quando viene modificata la collezione
     private ObservableCollection<KanbanTask> daFare = null;
     private ObservableCollection<KanbanTask> inCorso = null;
     private ObservableCollection<KanbanTask> fatto = null;
 
     public KanbanPage()
     {
-
         InitializeComponent();
         CaricaTask();
     }
@@ -27,6 +27,7 @@ public partial class KanbanPage : ContentPage
         inCorso = new ObservableCollection<KanbanTask>();
         fatto = new ObservableCollection<KanbanTask>();
 
+        //Controlla se esiste il file delle attività e carica le attività nelle rispettive collezioni in base allo stato
         if (File.Exists(TaskFilePath))
         {
             var righe = File.ReadAllLines(TaskFilePath);
@@ -52,6 +53,7 @@ public partial class KanbanPage : ContentPage
         await Navigation.PushAsync(new CreateTaskPage());
     }
 
+    //Gestisce il tap su una task, naviga alla pagina di dettaglio della task selezionata
     private async void OnTaskTapped(object sender, TappedEventArgs e)
     {
         var frame = sender as Frame;
