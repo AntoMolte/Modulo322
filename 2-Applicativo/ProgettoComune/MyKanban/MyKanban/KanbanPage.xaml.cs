@@ -1,5 +1,6 @@
 using MyKanban.Models;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace MyKanban;
 
@@ -14,6 +15,7 @@ public partial class KanbanPage : ContentPage
 
     public KanbanPage()
     {
+
         InitializeComponent();
         CaricaTask();
     }
@@ -56,7 +58,7 @@ public partial class KanbanPage : ContentPage
 
         if (frame?.BindingContext is KanbanTask task)
         {
-            await Navigation.PushAsync(new TaskDetailPage(task));
+            await Navigation.PushAsync(new TaskDetailPage(this, task));
         }
     }
 
@@ -74,6 +76,41 @@ public partial class KanbanPage : ContentPage
             righe.Add(task.ToRiga());
 
         File.WriteAllLines(TaskFilePath, righe);
+    }
+
+    public void UpdateTask(KanbanTask currentTask)
+    {
+        ObservableCollection<KanbanTask>? lista = null;
+
+        if (daFare.Contains(currentTask))
+            lista = daFare;
+        else if (inCorso.Contains(currentTask))
+            lista = inCorso;
+        else if (fatto.Contains(currentTask))
+            lista = fatto;
+
+        if (lista == null)
+            return;
+
+        int index = lista.IndexOf(currentTask);
+
+        lista.RemoveAt(index);
+        lista.Insert(index, currentTask);
+
+        SalvaTask();
+    }
+
+    public void DeleteTask(KanbanTask currentTask)
+    {
+        if (currentTask == null)
+        {
+            return;
+        }
+        daFare.Remove(currentTask);
+        inCorso.Remove(currentTask);
+        fatto.Remove(currentTask);
+
+        SalvaTask();
     }
 
     private KanbanTask taskTrascinata;

@@ -2,11 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyKanban.CreateTaskPage">
-    <Frame BackgroundColor="#e9e9e9" Margin="0,10" CornerRadius="40"
-       HeightRequest="700" WidthRequest="1000" VerticalOptions="Center" HorizontalOptions="Center">
+
+    <Frame BackgroundColor="#f0f0f0" Margin="0,10" CornerRadius="28"
+           HeightRequest="575" WidthRequest="1000"
+           VerticalOptions="Center" HorizontalOptions="Center">
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -17,47 +21,112 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Text="Crea Attività" TextColor="Black" FontSize="44" HorizontalOptions="Center"  Grid.ColumnSpan="2"  Margin="0,20,0,30"/>
-            <Label Text="Campi Obbligatori" FontSize="22" TextColor="Black" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0"/>
-            <VerticalStackLayout Grid.Row="2" Grid.Column="0" Margin="15">
-                <Label Text="Titolo Attività" FontSize="20" TextColor="Black"/>
-                <Entry FontSize="24" Background="White" x:Name="EntTitle"/>
-            </VerticalStackLayout>
-            <Picker Title="Stato Attività" Grid.Row="3" Grid.Column="0" Margin="15" x:Name="PickStatus" Background="White" FontSize="20">
-                <Picker.Items>
-                    <x:String>Da fare</x:String>
-                    <x:String>In corso</x:String>
-                    <x:String>Fatto</x:String>
-                </Picker.Items>
-            </Picker>
-            <Picker Title="Priorità Attività" Grid.Row="4" Grid.Column="0" Margin="15" x:Name="PickPriority" Background="White" FontSize="20">
-                <Picker.Items>
-                    <x:String>Basso</x:String>
-                    <x:String>Medio</x:String>
-                    <x:String>Alto</x:String>
-                </Picker.Items>
-            </Picker>
-            <VerticalStackLayout Grid.Row="5" Grid.Column="0" Margin="15">
-                <Label Text="Data di scadenza" FontSize="18" TextColor="Black"/>
-                <DatePicker x:Name="PickDate"  Format="dd/MM/yyyy" FontSize="20" Background="White"/>
-            </VerticalStackLayout>
-            <Button x:Name="btnAnnullaTask" Grid.Row="6" Grid.Column="0" Text="Annulla Creazione" BackgroundColor="#333"
-                TextColor="White" CornerRadius="6" HeightRequest="45" Margin="15" Clicked="OnAnnulaClicked"/>
+            <!-- TITOLO PAGINA -->
+            <Label Text="Crea Attività" TextColor="Black" FontSize="28"
+                   FontAttributes="Bold" HorizontalOptions="Center"
+                   Grid.ColumnSpan="3" Margin="0,20,0,20"/>
 
-            <!--Colonna 1-->
-            <Label Text="Campi Facoltativi" FontSize="22" TextColor="Black" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" Margin="20,0,0,0"/>
-            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="15" RowDefinitions="Auto, 151">
-                <Label Text="Descrizione" FontSize="20" TextColor="Black"/>
-                <Editor Grid.Row="1" x:Name="EntDescription" FontSize="24" BackgroundColor="White" AutoSize="Disabled"/>
+            <!-- LINEA VERTICALE che separa le due colonne -->
+            <BoxView Grid.Column="1" Grid.Row="1" Grid.RowSpan="5"
+                     BackgroundColor="#22000000" WidthRequest="1"
+                     HorizontalOptions="Center" VerticalOptions="Fill"/>
+
+            <!-- Titolo sezione obbligatoria -->
+            <StackLayout Grid.Row="1" Grid.Column="0" Margin="20,0,20,0" Spacing="6">
+                <Label Text="CAMPI OBBLIGATORI" FontSize="20"
+                       FontAttributes="Bold" CharacterSpacing="1"/>
+                <!-- 22 opacità 000000 colore nero -->
+                <BoxView BackgroundColor="#22000000" HeightRequest="1" HorizontalOptions="Fill"/>
+            </StackLayout>
+
+            <!-- Titolo attività -->
+            <VerticalStackLayout Grid.Row="2" Grid.Column="0" Margin="20,10,20,0" Spacing="5">
+                <Label Text="Titolo attività" FontSize="18"/>
+                <Entry FontSize="16" Background="White" x:Name="EntTitle"/>
+            </VerticalStackLayout>
+
+            <!-- Stato attività -->
+            <VerticalStackLayout Grid.Row="3" Grid.Column="0" Margin="20,10,20,0" Spacing="5">
+                <Label Text="Stato attività" FontSize="18"/>
+                <Picker x:Name="PickStatus" Background="White" FontSize="16">
+                    <Picker.Items>
+                        <x:String>Da fare</x:String>
+                        <x:String>In corso</x:String>
+                        <x:String>Fatto</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- Priorità -->
+            <VerticalStackLayout Grid.Row="4" Grid.Column="0" Margin="20,10,20,0" Spacing="5">
+                <Label Text="Priorità" FontSize="18"/>
+                <Picker x:Name="PickPriority" Background="White" FontSize="16">
+                    <Picker.Items>
+                        <x:String>Basso</x:String>
+                        <x:String>Medio</x:String>
+                        <x:String>Alto</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- Data di scadenza -->
+            <VerticalStackLayout Grid.Row="5" Grid.Column="0" Margin="20,10,20,0" Spacing="5">
+                <Label Text="Data di scadenza" FontSize="18"/>
+                <DatePicker x:Name="PickDate" Format="dd/MM/yyyy"
+                            FontSize="16" Background="White"/>
+            </VerticalStackLayout>
+
+            <!-- Titolo sezione facoltativa -->
+            <StackLayout Grid.Row="1" Grid.Column="2" Margin="20,0,20,0" Spacing="6">
+                <Label Text="CAMPI FACOLTATIVI" FontSize="20"
+                       FontAttributes="Bold" CharacterSpacing="1"/>
+                <!-- Linea sotto il titolino -->
+                <BoxView BackgroundColor="#22000000" HeightRequest="1" HorizontalOptions="Fill"/>
+            </StackLayout>
+
+            <!-- Descrizione -->
+            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="2"
+                  Margin="20,10,20,0" RowDefinitions="Auto,130">
+                <Label Text="Descrizione" FontSize="18"/>
+                <Editor Grid.Row="1" x:Name="EntDescription" FontSize="16"
+                        BackgroundColor="White" AutoSize="Disabled"/>
             </Grid>
-            <Grid Grid.Row="4" Grid.RowSpan="4" Grid.Column="1" Margin="15" RowDefinitions="Auto, 151">
-                <Label Text="Sotto-Attività" FontSize="20" TextColor="Black"/>
-                <Editor Grid.Row="1" x:Name="EntUnderTask" FontSize="24" BackgroundColor="White" AutoSize="Disabled"/>
+
+            <!-- Sotto-attività -->
+            <Grid Grid.Row="4" Grid.RowSpan="2" Grid.Column="2"
+                  Margin="20,10,20,0" RowDefinitions="Auto,130">
+                <Label Text="Sotto-attività" FontSize="18"/>
+                <Editor Grid.Row="1" x:Name="EntUnderTask" FontSize="16"
+                        BackgroundColor="White" AutoSize="Disabled"/>
             </Grid>
-            <Button x:Name="btnSaveTask" Grid.Row="6" Grid.Column="1" Text="Crea attività" BackgroundColor="#333"
-                    TextColor="White" CornerRadius="6" HeightRequest="45" Margin="15" Clicked="OnSaveClicked"/>
+
+            <!-- Linea sopra i bottoni -->
+            <BoxView Grid.Row="6" Grid.ColumnSpan="3" Margin="20,15,20,0"
+                     BackgroundColor="#22000000" HeightRequest="1"/>
+
+            <Grid Grid.Row="7" Grid.ColumnSpan="3" Margin="20,12,20,15"
+                  ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Annulla -->
+                <Button Grid.Column="0" x:Name="btnAnnullaTask"
+                        Text="Annulla creazione" BackgroundColor="#AA3333"
+                        TextColor="White" CornerRadius="12" HeightRequest="46"
+                        FontSize="14" Clicked="OnAnnulaClicked"/>
+
+                <!-- Crea attività -->
+                <Button Grid.Column="1" x:Name="btnSaveTask"
+                        Text="Crea attività" BackgroundColor="#2e7d32"
+                        TextColor="White" CornerRadius="12" HeightRequest="46"
+                        FontSize="14" Clicked="OnSaveClicked"/>
+            </Grid>
+
         </Grid>
     </Frame>
 </ContentPage>

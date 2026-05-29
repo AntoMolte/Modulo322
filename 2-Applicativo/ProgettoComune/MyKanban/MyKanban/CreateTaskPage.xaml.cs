@@ -5,9 +5,12 @@ public partial class CreateTaskPage : ContentPage
     private static string TaskFilePath =
         Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
 
+
     public CreateTaskPage()
     {
         InitializeComponent();
+        PickDate.MinimumDate = DateTime.Today.AddDays(1);
+        PickDate.Date = DateTime.Today.AddDays(1);
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
@@ -30,7 +33,7 @@ public partial class CreateTaskPage : ContentPage
             return;
         }
 
-        if (PickDate.Date < DateTime.Today)
+        if (PickDate.Date <= DateTime.Today)
         {
             await DisplayAlert("Errore", "La data di scadenza non può essere precedente a oggi", "OK");
             return;

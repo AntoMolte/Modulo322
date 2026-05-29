@@ -4,15 +4,16 @@
              x:Class="MyKanban.MainPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="2*"/>
-            <ColumnDefinition  Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Frame Grid.Column="1"
-               BackgroundColor="#e9e9e9" 
-               Margin="0,10" CornerRadius="40">
-            <Grid HorizontalOptions="Center" WidthRequest="600">
+
+        <Frame Grid.Column="1" BackgroundColor="#f0f0f0"
+               Margin="0,10" CornerRadius="28">
+
+            <Grid HorizontalOptions="Center" WidthRequest="420"
+                  VerticalOptions="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -20,26 +21,41 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="1" Text="Accedi" FontSize="80" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                <Entry x:Name ="EntNameAccount" Grid.Row="2" BackgroundColor="White" Margin="10"
-                       Placeholder="Nome Utente"/>
-                <Entry x:Name ="EntPasswordAccount" Grid.Row="3" BackgroundColor="White" Margin="10"
-                       IsPassword="True" Placeholder="Metti la Password" Completed="OnLoginClicked"/>
-             
-                <Button x:Name="btnLoginAccount" Grid.Row="4" Text="Accedi" BackgroundColor="#333"
-                        TextColor="White" CornerRadius="6" HeightRequest="45" 
-                        Margin="10" Clicked="OnLoginClicked" />
+
+                <!-- TITOLO -->
+                <Label Grid.Row="0" Text="Accedi" FontSize="38"
+                       FontAttributes="Bold" HorizontalTextAlignment="Center"
+                       Margin="0,0,0,30"/>
+
+                <!-- NOME UTENTE -->
+                <Entry Grid.Row="1" x:Name="EntNameAccount"
+                       BackgroundColor="White" Margin="0,0,0,12"
+                       Placeholder="Nome Utente" FontSize="14"/>
+
+                <!-- PASSWORD -->
+                <Entry Grid.Row="2" x:Name="EntPasswordAccount"
+                       BackgroundColor="White" Margin="0,0,0,0"
+                       IsPassword="True" Placeholder="Password"
+                       FontSize="14" Completed="OnLoginClicked"/>
+
+                <!-- LINEA SOPRA IL BOTTONE -->
+                <BoxView Grid.Row="3" BackgroundColor="#22000000"
+                         HeightRequest="1" Margin="0,20,0,16"/>
+
+                <!-- BOTTONE ACCEDI -->
+                <Button Grid.Row="4" x:Name="btnLoginAccount"
+                        Text="Accedi" BackgroundColor="#333333"
+                        TextColor="White" CornerRadius="12"
+                        HeightRequest="46" FontSize="14"
+                        Margin="0,0,0,12" Clicked="OnLoginClicked"/>
+
+                <!-- REGISTRATI -->
                 <Button Grid.Row="5" FontSize="12" Background="Transparent"
-                       Text="Non hai un account? Registrati"
-                       HorizontalOptions="Center" TextColor="Blue"
+                        Text="Non hai un account? Registrati"
+                        HorizontalOptions="Center" TextColor="#185FA5"
                         Clicked="OnRegisterClicked"/>
-                <Label Text="Password Dimenticata" Grid.Row="6" 
-                       FontSize="12" Grid.Column="1"  TextColor="Blue"
-                       TextDecorations="Underline" HorizontalOptions="Center"/>
+
             </Grid>
         </Frame>
-
     </Grid>
-
-
 </ContentPage>
