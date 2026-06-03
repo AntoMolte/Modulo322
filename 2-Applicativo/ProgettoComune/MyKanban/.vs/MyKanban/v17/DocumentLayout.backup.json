@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F158903F-C13C-43CF-9936-0423280C3543}|MyKanban.test\\MyKanban.test.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban.test\\integrationtest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F158903F-C13C-43CF-9936-0423280C3543}|MyKanban.test\\MyKanban.test.csproj|solutionrelative:mykanban.test\\integrationtest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|c:\\datiallievo\\anmo\\modulo322\\2-applicativo\\progettocomune\\mykanban\\mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06CF383-E8B1-4038-B2A1-7CA4CA6ECC81}|MyKanban\\MyKanban.csproj|solutionrelative:mykanban\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +40,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "MyKanban\\MainPage.xaml.cs",
               "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml.cs",
               "RelativeToolTip": "MyKanban\\MainPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAYwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T13:39:08.179Z",
+              "WhenOpened": "2026-06-03T11:44:47.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegisterPage.xaml",
-              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\RegisterPage.xaml",
-              "RelativeDocumentMoniker": "MyKanban\\RegisterPage.xaml",
-              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\RegisterPage.xaml",
-              "RelativeToolTip": "MyKanban\\RegisterPage.xaml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-29T13:21:24.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml",
               "RelativeDocumentMoniker": "MyKanban\\MainPage.xaml",
               "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban\\MainPage.xaml",
               "RelativeToolTip": "MyKanban\\MainPage.xaml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC0AAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-29T13:21:21.45Z",
+              "WhenOpened": "2026-06-03T11:39:21.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IntegrationTest1.cs",
+              "DocumentMoniker": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban.test\\IntegrationTest1.cs",
+              "RelativeDocumentMoniker": "MyKanban.test\\IntegrationTest1.cs",
+              "ToolTip": "C:\\DatiAllievo\\AnMo\\Modulo322\\2-Applicativo\\ProgettoComune\\MyKanban\\MyKanban.test\\IntegrationTest1.cs",
+              "RelativeToolTip": "MyKanban.test\\IntegrationTest1.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAcwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T11:34:07.117Z",
               "EditorCaption": ""
             }
           ]

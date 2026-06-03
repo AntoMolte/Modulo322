@@ -1,13 +1,11 @@
 using MyKanban.Models;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 
 namespace MyKanban;
 
 public partial class KanbanPage : ContentPage
 {
-    private static string TaskFilePath =
-        Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
+    private static string TaskFilePath = Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
 
     //ObservableCollection per ogni colonna del Kanban, permette di aggiornare automaticamente la UI quando viene modificata la collezione
     private ObservableCollection<KanbanTask> daFare = null;
@@ -19,7 +17,6 @@ public partial class KanbanPage : ContentPage
         InitializeComponent();
         CaricaTask();
     }
-
 
     private void CaricaTask()
     {

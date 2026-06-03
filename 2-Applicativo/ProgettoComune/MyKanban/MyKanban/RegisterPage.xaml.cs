@@ -8,6 +8,12 @@ public partial class RegisterPage : ContentPage
 		InitializeComponent();
 	}
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        btnCreateAccount.Focus();
+    }
+
     private async void OnLoginClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage());

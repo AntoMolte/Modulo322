@@ -12,7 +12,7 @@ public partial class HomePage : ContentPage
     int? selezionato;// int? significa che la variabile può contenere un numero intero oppure null (nessun valore)
 
     private static string TaskFilePath =
-        Path.Combine(FileSystem.AppDataDirectory, "tasks.txt");
+        Path.Combine(FileSystem.AppDataDirectory, "tasks.txt"); // FileSystem.AppDataDirectory restituisce una cartella privata
 
     public HomePage()
     {
@@ -25,7 +25,7 @@ public partial class HomePage : ContentPage
         };
 
         YearPicker.ItemsSource = // riempe la parte degli anni creando i numeri da 2020 a 2030 11 valori e trasformando ogni numero in stringa e salvandolo in una lista  
-            Enumerable.Range(2020, 11)
+            Enumerable.Range(2020, 11) // Enumerable.Range genera una sequenza di numeri. 
             .Select(x => x.ToString())
             .ToList();
 
@@ -46,7 +46,7 @@ public partial class HomePage : ContentPage
 
     void Picker_Changed(object sender, EventArgs e) // questo metodo viene avviato quando si cambia mese o anno e serve per controllare che mese e hanno sia validi aggiona le variabili e ridisegna il calendario
     {
-        if (MonthPicker.SelectedIndex == -1 ||
+        if (MonthPicker.SelectedIndex == -1 || // SelectedIndex rappresenta la posizione selezionata nel Picker. si sottrae uno per portare gli indici coerenti a quelli di maui  
             YearPicker.SelectedItem == null)
             return;
 
@@ -145,7 +145,7 @@ public partial class HomePage : ContentPage
             }
         };
 
-        border.GestureRecognizers.Add(  // Aggiunge un evento di click (tap sulla cella)
+        border.GestureRecognizers.Add(  // Aggiunge un evento di click (tap sulla cella) per rilevare gesti/interazioni dell’utente su un elemento grafico.
             new TapGestureRecognizer // rendere un elemento cliccabile
             {
                 Command = new Command(() =>

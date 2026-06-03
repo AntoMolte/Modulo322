@@ -4,6 +4,7 @@
              x:Class="MyKanban.HomePage"
              BackgroundColor="#F5F5F5">
     <ContentPage.Resources>
+        <!-- Resources = contenitore di risorse riutilizzabili (stili, colori, template, ecc.) -->
         <Style x:Key="DayHeaderStyle" TargetType="Label">
             <!-- Setter = imposta una proprietà dello stile -->
             <Setter Property="FontSize" Value="11"/>
@@ -30,7 +31,8 @@
                                 WidthRequest="32" HeightRequest="32" Padding="0"
                                 Clicked="BtnPrev_Clicked"/>
                         <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="6">
-                            <!-- Picker = menu a tendina -->
+                            <!-- Picker = menu a tendina.
+                            Quando cambia la selezione viene eseguito Picker_Changed -->
                             <Picker x:Name="MonthPicker" TextColor="#1A1A1A" FontSize="13"
                                     SelectedIndexChanged="Picker_Changed"/>
                             <Picker x:Name="YearPicker" TextColor="#1A1A1A" FontSize="13"
@@ -52,6 +54,8 @@
                         <Label Grid.Column="5" Text="Fr" Style="{StaticResource DayHeaderStyle}"/>
                         <Label Grid.Column="6" Text="Sa" Style="{StaticResource DayHeaderStyle}"/>
                     </Grid>
+                    <!-- Questa griglia viene popolata dinamicamente dal codice C#.-->
+
                     <Grid x:Name="DaysGrid"
                           ColumnDefinitions="*,*,*,*,*,*,*"
                           RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
@@ -79,16 +83,27 @@
                                TextColor="#4338CA"/>
                     </StackLayout>
                     <CollectionView x:Name="CvDaFare" SelectionMode="None" Margin="0,10">
+                        <!-- CollectionView è il controllo usato per visualizzare liste di dati. 
+                        - genera gli elementi automaticamente
+                        - è più veloce con molte attività
+                        - aggiorna l'interfaccia quando cambia la sorgente dati -->
                         <CollectionView.ItemTemplate>
+                            <!-- DataTemplate definisce il layout di UN singolo elemento.
+                            Se nella CollectionView ci sono 10 task,
+                            questo template verrà replicato automaticamente 10 volte. -->
                             <DataTemplate>
                                 <Frame BackgroundColor="White" CornerRadius="13"
                                        Margin="5,5,5,5" BorderColor="#12000000" Padding="14">
                                     <StackLayout Spacing="6">
+                                        <!-- Binding collega il controllo ad una proprietà
+                                        dell'oggetto Task corrente -->
                                         <Label Text="{Binding Title}" FontSize="15"
                                                FontAttributes="Bold" TextColor="Black"/>
                                         <Frame BackgroundColor="#FEE2E2" CornerRadius="6"
                                                Padding="8,2" BorderColor="Transparent"
                                                HorizontalOptions="Start">
+                                            <!-- Qui verrà mostrato il valore della proprietà
+                                            priorityTask dell'oggetto Task -->
                                             <Label Text="{Binding priorityTask}" FontSize="11"
                                                    FontAttributes="Bold" TextColor="#B91C1C"/>
                                         </Frame>
